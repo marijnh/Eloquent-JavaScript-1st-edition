@@ -5,7 +5,7 @@ import Data.Time.Calendar
 import System(getArgs)
 import Data.Char
 import Data.Maybe
-import Data.List
+import Data.List hiding (stripPrefix)
 import Data.Ord
 import Control.Monad
 import Control.Monad.State
