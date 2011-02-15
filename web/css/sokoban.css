@@ -1,0 +1,21 @@
+table.sokoban {
+  border-collapse: collapse;
+}
+
+table.sokoban td {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  vertical-align: middle;
+  text-align: center;
+}
+
+table.sokoban td.empty {
+  background-image: url(../img/sokoban/empty.png);
+}
+table.sokoban td.wall {
+  background-image: url(../img/sokoban/wall.png);
+}
+table.sokoban td.exit {
+  background-image: url(../img/sokoban/exit.png);
+}

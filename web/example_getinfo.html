@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>Register your own Planet Junkmail account</title>
+    <script type="text/javascript" src="js/params.js"> </script>
+  </head>
+  <body>
+    <h1>Planet Junkmail</h1>
+    <h2>Registration</h2>
+    <p>Register now, and be the first to hear about all our
+    spectacular deals on our unique products!</p>
+    <form name="userinfo" method="GET" action="example_getinfo.html">
+      <p>Name: <input type="text" name="name"/></p>
+      <p>E-Mail: <input type="text" name="email"/></p>
+      <p>Sex: <select name="sex">
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+              </select></p>
+      <p><input name="send" type="button" value="Send!"/></p>
+    </form>
+    <script type="text/javascript">
+      (function() {
+        var params = getParams();
+        var found = false;
+        for (var n in params) {
+          if (!found) {
+            document.write("<h2>Parameters</h2>");
+            found = true;
+          }
+          document.write(n + ": <b>" + params[n] + "</b><br/>");
+        }
+      })();
+    </script>
+  </body>
+</html>

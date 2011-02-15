@@ -1,0 +1,223 @@
+div.frame {
+  overflow: auto;
+  width: 100%;
+  position: relative;
+}
+
+div.console {
+  position: relative;
+  background-color: #b5c9c6;
+  overflow: hidden;
+  z-index: 12;
+}
+
+div.output, div.editor {
+  position: absolute;
+  background-color:white;
+}
+
+div.editor, div.repl {
+  overflow: hidden;
+}
+
+div.output {
+  overflow: hidden;
+}  
+
+div.outputhead {
+  font-size: 70%;
+  line-height: 90%;
+  padding: 2px .4em;
+  color: #7c9490;
+  border-bottom: 1px solid #CCDDDD;
+  background-color: #EEF4F4;
+}
+
+div.outputbutton {
+  cursor: pointer;
+  margin-left: .4em;
+  float: right;
+}
+
+div.outputinner {
+  overflow: auto;
+}
+
+div.outputinner pre {
+  margin: 0;
+  font-family: courier new, courier, monospace;
+  padding: .2em .4em;
+  font-size: 80%;
+}
+
+span.atomvalue {
+  color: #448888;
+  font-weight: normal;
+}
+span.stringvalue {
+  color: #AA2222;
+  font-weight: normal;
+}
+span.functionvalue {
+  color: #770088;
+  font-weight: normal;
+}
+span.objectvalue, span.arrayvalue {
+  color: #227722;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+table.objecttable {
+  border-spacing: 0;
+}
+
+table.objecttable th, table.objecttable td {
+  font-size: 80%;
+  padding: 0;
+  white-space: pre;
+}
+
+table.objecttable th {
+  color: #666666;
+  text-align: right;
+  font-weight: normal;
+  padding-right: .3em;
+}
+
+div.editor input {
+  border: 0;
+  padding: 2px;
+  font-family: courier new, courier, monospace;
+  font-size: 80%;
+}
+
+div.editor textarea {
+  border: 0;
+  padding: 3px;
+}
+
+#controls {
+  position: absolute;
+}
+
+#controls select {
+  width: 8em;
+  vertical-align: top;
+}
+
+#controls button, #controls select {
+  background-color: #b5c9c6;
+  color: #3d4e4b;
+  margin-right: .5em;
+}
+
+#controls button:hover, #controls select:hover {
+  background-color: #d0e0de;
+}
+
+button.showhide, button.resize {
+  border: 0;
+  margin-left: .5em;
+  height: 10px;
+  vertical-align: top;
+  padding: 0;
+}
+
+button.showhide {
+  background-image: url(../img/show.png);
+  width: 13px;
+  cursor: pointer;
+}
+
+div.open button.showhide {
+  background-image: url(../img/hide.png);
+  width: 13px;
+}
+
+button.resize {
+  background-image: url(../img/resize.png);
+  width: 30px;
+  cursor: n-resize;
+}
+
+div.console div.header {
+  text-align: right;
+  letter-spacing: .8em;
+  font-size: 50%;
+  color: #7c9490;
+  font-weight: bold;
+  font-family: times, serif;
+  padding-top: 1px;
+  padding-right: .5em;
+}
+
+div.console div.header span {
+  cursor: pointer;
+}
+
+/* hand-made inset/outset borders to make them look non-ugly in IE */
+
+#controls button, #controls select, div.console {
+  border-width: 1px;
+  border-style: solid;
+  border-top-color: #e1ecea;
+  border-left-color: #e1ecea;
+  border-bottom-color: #7c9490;
+  border-right-color: #7c9490;
+}
+
+div.output, div.editor, div.repl {
+  border-width: 1px;
+  border-style: solid;
+  border-top-color: #7c9490;
+  border-left-color: #7c9490;
+  border-bottom-color: #e1ecea;
+  border-right-color: #e1ecea;
+}
+
+button.codebutton {
+  float: right;
+  margin-top: -.25em;
+  margin-left: .2em;
+  height: 15px; 
+  width: 15px; 
+  padding: 0;
+  border: 0;
+  z-index: 11;
+  position: relative;
+}
+
+button.run {
+  background-image: url(../img/runcode_done.png);
+  margin-right: -.25em;
+}
+
+pre.not-run button.run {
+  background-image: url(../img/runcode.png);
+}
+
+button.load {
+  background-image: url(../img/loadcode.png);
+}
+
+div.marker {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background-color: red;
+}
+
+div.outputimage {
+  position: relative;
+  margin: .5em;
+}
+
+div.resizemarker {
+  width: 100%;
+  z-index: 13;
+  background: transparent;
+  border-bottom: 1px solid #444444;
+  position: absolute;
+  left: 0px;
+}

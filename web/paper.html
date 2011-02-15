@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <title>Eloquent JavaScript</title>
+    <link rel="stylesheet" type="text/css" href="css/book.css"/>
+    <link rel="stylesheet" type="text/css" href="css/highlight.css"/>
+    <link rel="stylesheet" type="text/css" href="css/console.css"/>
+    <script type="text/javascript" src="js/paper.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+      body {font-size: 90%; overflow-y: scroll;}
+      span.h1 {font-weight: bold; font-size: 110%;}
+      h1 {font-weight: bold; font-size: 110%; margin: 0;}
+      .chapterblock {margin-left: 1em;}
+      .chapterblock div {cursor: pointer; font-family: courier new, monospace}
+    </style>
+  </head>
+  <body>
+    <div style="padding: 5px 10px;">
+      <span class="h1">Eloquent JavaScript</span>
+      &nbsp; Code sandbox for the <a href="http://nostarch.com/ejs.htm">paper book</a>
+      [<a href="javascript:document.getElementById('help').style.display=document.getElementById('help').style.display?'':'none';">help</a>]
+    </div>
+    <div id="help" style="padding: 5px 20px; margin-top: -10px; display: none">
+      <p>The console widget below allows for the editing and running
+      of JavaScript code. The area on the left is where output (from
+      the functions <code>show</code> and <code>print</code>) goes.
+      Some values can be clicked to further inspect them. The line
+      below this can be used to type JavaScript expressions and
+      evaluate them right away. On the right is the editor, where code
+      can be typed or loaded, and ran using the buttons below.</p>
+      <p>The 'Chapter X' list on the bottom of the page contains
+      almost all the code found in the book. Click on the triangle to
+      expand or collapse a list of snippets for a chapter. Then click
+      on a snippet to load it, or click [run all] to run all code for
+      a chapter. For chapters with big examples, the latter is the
+      easiest way to see the examples in action.</p>
+      <p>The bottom right of the screen displays a separate frame, in
+      which the code run through the console lives. The examples from
+      some of the chapters (for example, the HTML created by chapter
+      5) will be displayed here.</p>
+    </div>
+    <div id="console" class="console frame open" style="height: 25em; width: auto;"></div>
+    <table width="100%" border="0">
+      <tr><td width="50%" style="vertical-align: top">
+        <div style="padding: 5px 10px;" id="code"></div>
+      </td><td width="50%" style="vertical-align: top">
+        <div id="frameplace"></div>      
+      </td></tr>
+    </table>
+  </body>
+</html>
