@@ -3251,22 +3251,6 @@ array causes excess elements to be discarded:
 > array.length = 2;
 > show(array);
 
-In some browsers, objects have a method |watch|, which can be used to
-add a watcher to your own properties. Internet Explorer does not
-support this though, so it is of little use when writing programs that
-must run on all the 'big' browsers.
-
-!> var winston = {mind: "compliant"};
-!> function watcher(propertyName, from, to) {
-!>   if (to == "compliant")
-!>     print("Doubleplusgood.");
-!>   else
-!>     print("Transmitting information to Thought Police...");
-!> }
-!> winston.watch("mind", watcher);
-!>
-!> winston.mind = "rebellious";
-
 ======================
 Error Handling / error
 ======================
