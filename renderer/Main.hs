@@ -9,10 +9,10 @@ import Data.List hiding (stripPrefix)
 import Data.Ord
 import Control.Monad
 import Control.Monad.State
+import System.IO.UTF8
 
 import Html
 import Highlight
-import UTF8
 
 main = do args <- getArgs
           renderFile (args !! 0)
@@ -155,7 +155,7 @@ stripPrefix n ('\n':cs) = '\n' : (stripPrefix n $ drop' n cs)
     where drop' 0 xs = xs
           drop' _ [] = []
           drop' _ xs@('\n':_) = xs
-          drop' (n+1) (x:xs) = drop' n xs
+          drop' n (x:xs) = drop' (n-1) xs
 stripPrefix n (c:cs) = c : (stripPrefix n cs)
 
 linesFrom p cs = map (removeUpto p) $ lines cs
@@ -306,17 +306,12 @@ fileName c = (typeName c) ++ (show (num c)) ++ ".html"
 outputPath = "web/"
 imgPath = "img/"
 
-writeFileUTF8 file content = writeFile file (map (chr . fromIntegral) (encode content))
-readFileUTF8 file = do input <- readFile file
-                       let (chars, []) = decode (map (toEnum . ord) input)
-                       return chars
-
-renderFile file = do input <- readFileUTF8 file
+renderFile file = do input <- System.IO.UTF8.readFile file
                      now <- (getCurrentTime >>= return . toGregorian . utctDay)
                      let chapters = map numberChapter (parse input)
                      renderChapters chapters now
-                     writeFileUTF8 (outputPath ++ "contents.html") (showPage (renderContent chapters now))
-                     writeFileUTF8 (outputPath ++ "terms.html") (showPage (renderIndex chapters now))
+                     System.IO.UTF8.writeFile (outputPath ++ "contents.html") (showPage (renderContent chapters now))
+                     System.IO.UTF8.writeFile (outputPath ++ "terms.html") (showPage (renderIndex chapters now))
 
 -- "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">"
 showPage html = (show html)
@@ -387,9 +382,9 @@ renderContent cs now = page "Contents" [contentDiv [header, listHeader, makeList
 
 
 renderChapters cs now = do let rcs = map (renderChapter' cs) cs
-                           writeFileUTF8 (outputPath ++ "print.html") (showPage (renderPrintable rcs now))
-                           forEach (zip [0..] (zip cs rcs)) (\c -> writeFileUTF8 (outputPath ++ (fileName (fst (snd c))))
-                                                                                 (showPage (renderChapter c cs now)))
+                           System.IO.UTF8.writeFile (outputPath ++ "print.html") (showPage (renderPrintable rcs now))
+                           forEach (zip [0..] (zip cs rcs)) (\c -> System.IO.UTF8.writeFile (outputPath ++ (fileName (fst (snd c))))
+                                                                                            (showPage (renderChapter c cs now)))
 
 renderChapter' cs c = header : (alternate blocks sep) ++ footnotes'
     where blocks = map (renderBlock c cs) (content c)
@@ -451,7 +446,7 @@ renderFragment cs (ChapRef capit tag) = [link href (maybeCapitalise capit text)]
     where (href, text) = findChapter cs tag
 renderFragment cs (FootRef n) = [Tg "a" [("class", "footref"), ("href", "#footnote" ++ (show n))] [Tx (show n)]]
 renderFragment cs Break = [tg "br" [], tg "br" []]
-renderFragment cs (Exponent n) = [spanClass "exponent" [Tx n]]
+renderFragment cs (Exponent n) = [tg "sup" [Tx n]]
 renderFragment cs (Link href title) = [link href title]
 
 renderFragments cs fs = concatMap (renderFragment cs) fs
