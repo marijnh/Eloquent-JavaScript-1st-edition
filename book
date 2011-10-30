@@ -338,10 +338,10 @@ For bigger pieces of code, those that span multiple lines and which
 you want to keep around for a while, the field on the right can be
 used. The 'Run' button is used to execute programs written in this
 field. It is possible to have multiple programs open at the same time.
-Use the 'New' and 'Load' buttons to add a new program (empty or from a
-file on the web). When there is more than one open program, the menu
-next to the 'Run' button can be used to choose which one is being
-shown. The 'Close' button, as you might expect, closes a program.
+Use the 'New' button to open a new, empty buffer. When there is more
+than one open buffer, the menu next to the 'Run' button can be used to
+choose which one is being shown. The 'Close' button, as you might
+expect, closes a buffer.
 
 Example programs in this book always have a small button with an arrow
 in their top-right corner, which can be used to run them. The example
