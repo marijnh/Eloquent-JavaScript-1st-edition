@@ -1763,6 +1763,25 @@ argument, one that adds 5, and so on.
 > var addFive = makeAddFunction(5);
 > show(addTwo(1) + addFive(1));
 
+To wrap your head around this, you should consider functions to not
+just package up a computation, but also an environment. Top-level
+functions simply execute in the top-level environment, that much is
+obvious. But a function defined inside another function retains access
+to the environment that existed in that function at the point when it
+was defined.
+
+Thus, the |add| function in the above example, which is created when
+|makeAddFunction| is called, captures an environment in which |amount|
+has a certain value. It packages this environment, together with the
+computation |return number + amount|, into a value, which is then
+returned from the outer function.
+
+When this returned function (|addTwo| or |addFive|) is called, a new
+environment---in which the variable |number| has a value---is created,
+as a sub-environment of the captured environment (in which |amount|
+has a value). These two values are then added, and the result is
+returned.
+
 ---
 
 On top of the fact that different functions can contain variables of
