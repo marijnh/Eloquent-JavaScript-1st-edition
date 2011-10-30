@@ -3946,7 +3946,7 @@ function initEnvironment(win, output, callback) {
   }
 
   function run(code, showResult) {
-    if (showResult) 
+    if (showResult)
       feed(wrapCode("$r = eval(", "); if ($r !== undefined) " + showResult + "($r);", code));
     else
       feed(wrapCode("eval(", ");", code));
@@ -4444,7 +4444,7 @@ function Console(param) {
            "Run", attach("onclick", function(){runCode(active.getCode(), false);})),
     buffers,
     BUTTON({title: "New buffer", "type": "button"}, "New", attach("onclick", createBuffer)),
-    BUTTON({title: "Load a file as a new buffer", "type": "button"}, "Load", attach("onclick", loadFile)),
+//    BUTTON({title: "Load a file as a new buffer", "type": "button"}, "Load", attach("onclick", loadFile)),
     BUTTON({title: "Close this buffer", "type": "button"}, "Close", attach("onclick", closeBuffer)),
     BUTTON({title: "Reset the console environment", "type": "button"}, "Reset", attach("onclick", resetEnvironment)));
   connect(buffers, "onchange", function(){
@@ -4830,8 +4830,9 @@ var processPage = function(){
         $("consoleCompensation").style.height = consoleSize + "px";
       else
         setElementDimensions($("content"), {h: Math.max(0, winSize.h - 1 - consoleSize)});
-      setElementDimensions($("console"), {h: consoleSize + sizeCorrection,
-                                          w: fixedConsole ? document.body.clientWidth : winSize.w + sizeCorrection});
+      var width = fixedConsole ? document.body.clientWidth : winSize.w + sizeCorrection;
+      if (fixedConsole && fakeFixed) width += sizeCorrection;
+        setElementDimensions($("console"), {h: consoleSize + sizeCorrection, w: width});
       resizeConsole();
     }
     else {
@@ -4842,8 +4843,9 @@ var processPage = function(){
       else {
         setElementDimensions($("content"), {h: winSize.h - topBar + sizeCorrection});
       }
-      setElementDimensions($("console"), {h: topBar,
-                                          w: fixedConsole ? document.body.clientWidth : winSize.w + sizeCorrection});
+      var width = fixedConsole ? document.body.clientWidth : winSize.w + sizeCorrection;
+      if (fixedConsole && fakeFixed) width += sizeCorrection;
+      setElementDimensions($("console"), {h: topBar, w: width});
     }
     if (fixedConsole) alignConsole();
   }
@@ -4875,8 +4877,15 @@ var processPage = function(){
       };
     }
     else if (fakeFixed) {
-      window.onscroll = alignConsole;
-//      setInterval(alignConsole, 200);
+      var timeout = null;
+      window.onscroll = function() {
+        $("console").style.display = "none";
+        clearTimeout(timeout);
+        timeout = setTimeout(function() {
+          $("console").style.display = "";
+          alignConsole();
+        }, 100);
+      };
       if (iphone) {
         function trackFocus(node) {
           node.onfocus = function(){inputFocused = true;};

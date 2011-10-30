@@ -5349,7 +5349,8 @@ function checkAppVersion(minimum){
   return parts.length > 0 && Number(parts[0]) >= minimum;
 }
 var useJSEditor = true;
-if (window.opera) useJSEditor = false;
+// No CodeMirror for iOS
+if (/AppleWebKit/.test(navigator.userAgent) && /iP[oa]d|iPhone/.test(navigator.userAgent)) useJSEditor = false;
 
 function Buffer(name, content, where){
   if (useJSEditor){
@@ -5730,7 +5731,7 @@ function Console(param) {
            "Run", attach("onclick", function(){runCode(active.getCode(), false);})),
     buffers,
     BUTTON({title: "New buffer", "type": "button"}, "New", attach("onclick", createBuffer)),
-    BUTTON({title: "Load a file as a new buffer", "type": "button"}, "Load", attach("onclick", loadFile)),
+//    BUTTON({title: "Load a file as a new buffer", "type": "button"}, "Load", attach("onclick", loadFile)),
     BUTTON({title: "Close this buffer", "type": "button"}, "Close", attach("onclick", closeBuffer)),
     BUTTON({title: "Reset the console environment", "type": "button"}, "Reset", attach("onclick", resetEnvironment)));
   connect(buffers, "onchange", function(){
@@ -6027,7 +6028,7 @@ var code = {
       "// reduce\nfunction reduce(combine, base, array) {\n  forEach(array, function (element) {\n    base = combine(base, element);\n  });\n  return base;\n}\n\nfunction add(a, b) {\n  return a + b;\n}\n\nfunction sum(numbers) {\n  return reduce(add, 0, numbers);\n}\n",
       "// countZeroes\nfunction count(test, array) {\n  var counted = 0;\n  forEach(array, function(element) {\n    if (test(element)) counted++;\n  });\n  return counted;\n}\n\nfunction countZeroes(array) {\n  function isZero(x) {return x === 0;}\n  return count(isZero, array);\n}\n",
       "// map\nfunction map(func, array) {\n  var result = [];\n  forEach(array, function (element) {\n    result.push(func(element));\n  });\n  return result;\n}\n\nprint(map(Math.round, [0.01, 2, 9.89, Math.PI]));\n",
-      "// split into paragraphs\nvar paragraphs = RECLUSEFILE.split(\"\\n\\n\");\nprint(paragraph.length);\n",
+      "// split into paragraphs\nvar paragraphs = RECLUSEFILE.split(\"\\n\\n\");\nprint(paragraphs.length);\n",
       "// processParagraph\nfunction processParagraph(paragraph) {\n  var header = 0;\n  while (paragraph.charAt(header) == \"%\")\n    header++;\n  if (header > 0)\n    return {type: \"h\" + header, content: paragraph.slice(header + 1)};\n  else\n    return {type: \"p\", content: paragraph};\n}\n\nshow(processParagraph(paragraphs[0]));\n",
       "// splitParagraph, functional\nfunction splitParagraph(text) {\n  function split(pos) {\n    if (pos == text.length) {\n       return [];\n    }\n    else if (text.charAt(pos) == \"*\") {\n      var end = findClosing(\"*\", pos + 1),\n          frag = {type: \"emphasized\", content: text.slice(pos + 1, end)};\n      return [frag].concat(split(end + 1));\n    }\n    else if (text.charAt(pos) == \"{\") {\n      var end = findClosing(\"}\", pos + 1),\n          frag = {type: \"footnote\", content: text.slice(pos + 1, end)};\n      return [frag].concat(split(end + 1));\n    }\n    else {\n      var end = findOpeningOrEnd(pos),\n          frag = {type: \"normal\", content: text.slice(pos, end)};\n      return [frag].concat(split(end));\n    }\n  }\n\n  function findClosing(character, from) {\n    var end = text.indexOf(character, from);\n    if (end == -1) throw new Error(\"Missing closing '\" + character + \"'\");\n    else return end;\n  }\n\n  function findOpeningOrEnd(from) {\n    function indexOrEnd(character) {\n      var index = text.indexOf(character, from);\n      return index == -1 ? text.length : index;\n    }\n    return Math.min(indexOrEnd(\"*\"), indexOrEnd(\"{\"));\n  }\n\n  return split(0);\n}\n",
       "// splitParagraph, idiomatic\nfunction splitParagraph(text) {\n  function split() {\n  var pos = 0, fragments = [];\n  while (pos < text.length) {\n    if (text.charAt(pos) == \"*\") {\n      var end = findClosing(\"*\", pos + 1);\n      fragments.push({type: \"emphasized\", content: text.slice(pos + 1, end)});\n      pos = end + 1;\n    }\n    else if (text.charAt(pos) == \"{\") {\n      var end = findClosing(\"}\", pos + 1);\n      fragments.push({type: \"footnote\", content: text.slice(pos + 1, end)});\n      pos = end + 1;\n    }\n    else {\n      var end = findOpeningOrEnd(pos);\n      fragments.push({type: \"normal\", content: text.slice(pos, end)});\n      pos = end;\n    }\n  }\n  return fragments;\n}\n\n  function findClosing(character, from) {\n    var end = text.indexOf(character, from);\n    if (end == -1) throw new Error(\"Missing closing '\" + character + \"'\");\n    else return end;\n  }\n\n  function findOpeningOrEnd(from) {\n    function indexOrEnd(character) {\n      var index = text.indexOf(character, from);\n      return index == -1 ? text.length : index;\n    }\n    return Math.min(indexOrEnd(\"*\"), indexOrEnd(\"{\"));\n  }\n\n  return split(0);\n}\n",
