@@ -1,0 +1,9 @@
+This is the source from which I build http://eloquentjavascript.net
+
+To build it yourself, install GHC (with the parsec2, mtl, and
+utf-string libraries), and run `make.sh` in the `renderer/` dir. You
+should get a `render` binary, which you can run on a text file to
+produce the HTML for the book.
+
+The file `book` contains the source for the actual book. Its format is
+completely undocumented, but relatively straightforward.
