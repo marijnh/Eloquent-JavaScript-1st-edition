@@ -57,7 +57,7 @@ BinaryHeap.prototype = {
         return;
       }
     }
-    throw new Error("Node not found.");
+//    throw new Error("Node not found.");
   },
   size: function() {
     return this.content.length;
