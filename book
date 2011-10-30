@@ -280,16 +280,16 @@ the standard). Flash is a system for adding things that move and make
 lots of noise to web-pages. Knowing JavaScript won't hurt if you ever
 find yourself learning to build Flash movies.
 
-At the time I am writing this, people are working on a thing called
-ECMAScript 4. This is a new version of the ECMAScript language, which
-adds a number of new features. You should not worry too much about
-this new version making the things you learn from this book obsolete.
-For one thing, ECMAScript 4 will mostly be an extension of the
-language we have now, so almost everything written in this book will
-still hold. On top of that, it will most likely take quite a while
-before all major browsers add these new features to their JavaScript
-systems, and until they do, ECMAScript 4 won't be very practical for
-web programming.
+JavaScript is still evolving. Since this book came out, ECMAScript 5
+has been released, which is compatible with the version described
+here, but adds some of the functionality we will be writing ourselves
+as built-in methods. The newest generation of browsers provides this
+expanded version of JavaScript. As of 2011, 'ECMAScript harmony', a
+more radical extension of the language, is in the process of being
+standardised. You should not worry too much about these new versions
+making the things you learn from this book obsolete. For one thing,
+they will be an extension of the language we have now, so almost
+everything written in this book will still hold.
 
 ---
 
