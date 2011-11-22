@@ -2328,7 +2328,7 @@ Luck has it that there is a special kind of objects specifically for
 this kind of use. They are called _array_s, and they provide some
 conveniences, such as a _|length|_ property that contains the amount
 of values in the array, and a number of operations useful for this
-kind of collections.
+kind of collection.
 
 @_|[]|_New arrays can be created using brackets (|[| and |]|):
 
