@@ -329,8 +329,8 @@ anchor name = Tg "a" [("name", name)] [Tx ""]
 link href text = Tg "a" [("href", href)] [Tx text]
 
 --scripts = ["js/Mochi.js", "js/util.js", "js/select.js", "js/tokenize.js", "js/highlight.js", "js/bookutil.js", "js/initenv.js", "js/env.js", "js/book.js"];
-scripts = ["js/ejs.js"];
-stylesheets = ["css/book.css", "css/highlight.css", "css/console.css"];
+scripts = ["js/mochi.js", "js/codemirror.js", "js/ejs.js"];
+stylesheets = ["css/book.css", "css/highlight.css", "css/console.css", "css/codemirror.css"];
 
 addScripts around = loadScript "js/before.js" : around : map loadScript scripts
 contentDiv = divClass "content"

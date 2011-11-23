@@ -7,7 +7,7 @@ div.frame {
 div.console {
   position: relative;
   background-color: #b5c9c6;
-  overflow: hidden;
+  overflow: visible;
   z-index: 12;
 }
 
@@ -215,7 +215,7 @@ div.outputimage {
 
 div.resizemarker {
   width: 100%;
-  z-index: 13;
+  z-index: 15;
   background: transparent;
   border-bottom: 1px solid #444444;
   position: absolute;
