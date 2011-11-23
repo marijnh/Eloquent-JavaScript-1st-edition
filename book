@@ -3205,7 +3205,7 @@ unreadable. For things like the |Math| object and other elementary
 functionality, a rather good reference can be found [here |
 http://www.webreference.com/javascript/reference/core_ref/contents.html].
 The old documentation from Netscape, which can still be found at
-[Sun's website | http://docs.sun.com/source/816-6408-10], can also be
+[Sun's website | http://download.oracle.com/docs/cd/E19957-01/816-6408-10/], can also be
 helpful, but is outdated and not entirely correct anymore.
 
 ---
@@ -8053,7 +8053,7 @@ cumbersome to constantly type |HTML|, you can always move it into the
 top-level environment using |provide|.
 
 > provide(HTML);
-> show(link("http://docs.sun.com/source/816-6408-10/object.htm",
+> show(link("http://download.oracle.com/docs/cd/E19957-01/816-6408-10/object.htm",
 >           "This is how objects work."));
 
 You can even combine the function and object approaches, by putting
@@ -9124,7 +9124,7 @@ this book, and they are complex enough to fill a thick book on their
 own. When you understand the basics of these interfaces (and
 understand something about HTML), it is not too hard to look for
 specific information online. The interface documentation for the
-[Firefox | http://www.mozilla.org/docs/dom/domref/dom_shortTOC.html]
+[Firefox | https://developer.mozilla.org/en/Gecko_DOM_Reference]
 and [Internet Explorer |
 http://msdn2.microsoft.com/library/yek4tbz0.aspx] browsers are a good
 place to start.
