@@ -35,6 +35,12 @@ function growElement(node) {
   setElementDimensions(node, {w: node.parentNode.clientWidth, h: node.parentNode.clientHeight});
 }
 
+function growEditor(node) {
+  var cm = node.CodeMirror, parent = node.parentNode;
+  setElementDimensions(cm.getScrollerElement(), {w: parent.clientWidth, h: parent.clientHeight});
+  cm.refresh();
+}
+
 function centerElement(node, pos) {
   setElementPosition(node, {x: pos.x - node.offsetWidth / 2, y: pos.y - node.offsetHeight / 2});
 }
@@ -237,19 +243,25 @@ function Buffer(name, content, where){
     this.editor = CodeMirror(function(node){
       self.node = node;
       where.appendChild(node);
-    }, {value: content, matchBrackets: true, lineWrapping: true});
+    }, {value: content,
+        matchBrackets: true,
+        lineWrapping: true,
+        onFocus: function() { inputFocused = true; },
+        onBlur: function() { inputFocused = false; }
+       });
   }
   else {
     this.node = TEXTAREA({spellcheck: false}, content);
     where.appendChild(this.node);
   }
-  growElement(this.node);
+  growEditor(this.node);
   this.name = name;
 }
 
 Buffer.prototype = {
   show: function() {
     showElement(this.node);
+    if (useJSEditor) this.editor.refresh();
   },
   hide: function() {
     hideElement(this.node);
@@ -1087,7 +1099,7 @@ var processPage = function(){
     placeElement(editor, {x: 2 * margin + leftWidth, y: topBar, w: rightWidth + sizeCorrection, h: topHeight + sizeCorrection});
     placeElement($("controls"), {x: 2 * margin + leftWidth, y: topBar + margin + topHeight, w: rightWidth});
 
-    forEach(editor.childNodes, growElement);
+    forEach(editor.childNodes, growEditor);
     setElementDimensions($("outputinner"), {w: output.clientWidth, h: output.clientHeight - output.firstChild.offsetHeight});
   }
 
