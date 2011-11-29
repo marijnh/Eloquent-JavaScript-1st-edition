@@ -5739,7 +5739,7 @@ lowest-scoring route from the open list and checks whether this gets
 us to the goal point. If it does not, we must continue by expanding
 it. This is what the |forEach| takes care of. It looks up this new
 point in the reached list. If it is not found there, or the node found
-has a longer length that the new route, a new route object is created
+has a longer length than the new route, a new route object is created
 and added to the open list and reached list, and the existing route
 (if any) is removed from the open list.
 
