@@ -8866,7 +8866,7 @@ Open it.
 
 > var form = window.open("example_getinfo.html");
 
-When a URL does not contain a server name, is called a _relative URL_.
+When a URL does not contain a server name, it is called a _relative URL_.
 Relative URLs are interpreted by the browser to refer to files on the
 same server as the current document. Unless they start with a slash,
 the path (or directory) of the current document is also retained, and
