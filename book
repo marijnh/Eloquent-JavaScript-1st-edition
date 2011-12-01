@@ -8594,7 +8594,7 @@ page like this is called an '_HTTP request_'.
 
 ---
 
-Web-pages and other files that are accessible though the Internet are
+Web-pages and other files that are accessible through the Internet are
 identified by _URL_s, which is an abbreviation of Universal Resource
 Locators. A URL looks like this:
 
