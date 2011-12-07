@@ -1233,7 +1233,7 @@ that is greater than 20 and divisible by 7:
 > print(current);
 
 The |for| construct does not have a part that checks for the end of
-the loop. This means that it is dependant on the |break| statement
+the loop. This means that it is dependent on the |break| statement
 inside it to ever stop. The same program could also have been written
 as simply...
 
@@ -10011,7 +10011,7 @@ such as the arrow keys.
 Finding out which key was pressed can be quite a challenge by itself.
 For |keydown| and |keyup| events, the event object will have a
 _|keyCode|_ property, which contains a number. Most of the time, these
-codes can be used to identify keys in a reasonably browser-independant
+codes can be used to identify keys in a reasonably browser-independent
 way. Finding out which code corresponds to which key can be done by
 simple experiments...
 
