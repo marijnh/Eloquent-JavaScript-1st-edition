@@ -8088,7 +8088,7 @@ inheritance we saw in \\coo. By making prototypes the central concept,
 rather than constructors, we managed to make some things considerably
 more straightforward.
 
-The best way to learn to the value of good interface design is,
+The best way to learn the value of good interface design is,
 unfortunately, to use bad interfaces. Once you get fed up with them,
 you'll figure out a way to improve them, and learn a lot in the
 process. Try not to assume that a lousy interface is 'just the way it
