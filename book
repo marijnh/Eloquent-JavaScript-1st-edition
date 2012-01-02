@@ -3201,12 +3201,8 @@ because its current form is the result of a chaotic process of
 different browsers adding different extensions at different times. The
 ECMA standard document that was mentioned in the introduction provides
 a solid documentation of the basic language, but is more or less
-unreadable. For things like the |Math| object and other elementary
-functionality, a rather good reference can be found [here |
-http://www.webreference.com/javascript/reference/core_ref/contents.html].
-The old documentation from Netscape, which can still be found at
-[Sun's website | http://download.oracle.com/docs/cd/E19957-01/816-6408-10/], can also be
-helpful, but is outdated and not entirely correct anymore.
+unreadable. For most things, your best bet is the [Mozilla Developer
+Network | https://developer.mozilla.org/en/JavaScript/Reference/].
 
 ---
 
