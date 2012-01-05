@@ -5984,7 +5984,7 @@ object itself.
 > show(killerRabbit.teeth);
 > show(Rabbit.prototype.teeth);
 
-This does mean that the prototype can be be used at any time to add
+This does mean that the prototype can be used at any time to add
 new properties and methods to all objects based on it. For example, it
 might become necessary for our rabbits to dance.
 
