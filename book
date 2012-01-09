@@ -3165,7 +3165,7 @@ sum. Write it, it should be easy.
 
 ---
 
-The previous chapter showed the functions |Math.max| and |Math.min|.
+\\Cbasics mentioned the functions |Math.max| and |Math.min|.
 With what you know now, you will notice that these are really the
 properties |max| and |min| of the object stored under the name
 _|Math|_. This is another role that objects can play: A warehouse
