@@ -6470,7 +6470,7 @@ on. When the |act| method is called, it is given an object with
 information about the surroundings of the bug in question. For each of
 the eight directions, it contains a property. The property indicating
 what is above the bug is called |"n"|, for North, the one
-indicating what is above and to the left |"ne"|, for North-East, and
+indicating what is above and to the right |"ne"|, for North-East, and
 so on. To look up the direction these names refer to, the following
 dictionary object is useful:
 
