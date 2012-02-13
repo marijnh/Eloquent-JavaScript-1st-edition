@@ -986,7 +986,7 @@ var processPage = function(){
 
   function setContentRatio(consoleHeight) {
     var winHeight = getViewportDimensions().h;
-    contentRatio = (winHeight - consoleHeight) / winHeight;
+    contentRatio = Math.min(.96, Math.max(.02, (winHeight - consoleHeight) / winHeight));
     setCookie("contentRatio", String(contentRatio));
   }
 
