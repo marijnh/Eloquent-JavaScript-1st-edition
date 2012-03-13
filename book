@@ -481,7 +481,7 @@ Which is 2.998 * 10^8 = 299800000.
 
 Calculations with whole numbers (also called integers) that fit in 52
 bits are guaranteed to always be precise. Unfortunately, calculations
-with fractional numbers are generally not. Like π (pi) can not be
+with fractional numbers are generally not. The same way that π (pi) can not be
 precisely expressed by a finite amount of decimal digits, many numbers
 lose some precision when only 64 bits are available to store them.
 This is a shame, but it only causes practical problems in very
