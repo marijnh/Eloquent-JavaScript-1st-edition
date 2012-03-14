@@ -1232,10 +1232,10 @@ that is greater than 20 and divisible by 7:
 > }
 > print(current);
 
-The |for| construct does not have a part that checks for the end of
-the loop. This means that it is dependent on the |break| statement
-inside it to ever stop. The same program could also have been written
-as simply...
+The |for| construct shown above does not have a part that checks for
+the end of the loop. This means that it is dependent on the |break|
+statement inside it to ever stop. The same program could also have
+been written as simply...
 
 > for (var current = 20; current % 7 != 0; current++)
 >   ;
