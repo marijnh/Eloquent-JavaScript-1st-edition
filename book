@@ -9659,7 +9659,7 @@ document.
 >   $("picture").style.top = (100 + 100 * Math.sin(angle)) + "px";
 > }, 100);
 
-If you aren't familiar with goniometry, just believe me when I tell
+If you aren't familiar with trigonometry, just believe me when I tell
 you that the cosine and sine stuff is used to build coordinates lying
 on the outline of a circle. Ten times per second, the angle at which
 we place the picture is changed, and new coordinates are computed. It
