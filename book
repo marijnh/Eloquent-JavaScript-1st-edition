@@ -800,14 +800,14 @@ browser goes to a new page.
 A lot of the values provided by the standard environment have the type
 '_function_'. A function is a piece of program wrapped in a value.
 Generally, this piece of program does something useful, which can be
-evoked using the function value that contains it. In a browser
+invoked using the function value that contains it. In a browser
 environment, the variable _|alert|_ holds a function that shows a
 little dialog window with a message. It is used like this:
 
 > alert("Also, your hair is on fire.");
 
-@_|()|_Executing the code in a function is called _invoking_ or
-_applying_ it. The notation for doing this uses parentheses. Every
+@_|()|_Executing the code in a function is called _invoking_, calling,
+or _applying_ it. The notation for doing this uses parentheses. Every
 expression that produces a function value can be invoked by putting
 parentheses after it. The string value between the parentheses is
 given to the function, which uses it as the text to show in the dialog
