@@ -563,6 +563,11 @@ To get special characters to show properly, you can do |print("a\nb")|
 
 >> "This is the first line\nAnd this is the second"
 
+Note that if you type this into the console, it'll display it back in
+'source' form, with the quotes and backslash escapes. To see only the
+actual text, you can type |print("a\nb")|. What that does precisely
+will be clarified a little further on.
+
 There are of course situations where you want a backslash in a string
 to be just a backslash, not a special code. If two backslashes follow
 each other, they will collapse right into each other, and only one
