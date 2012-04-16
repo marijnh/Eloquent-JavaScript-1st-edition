@@ -1931,12 +1931,12 @@ solution found by adding 5 to |start|, and if that fails, return the
 solution found by multiplying |start| by 3'. It could also have been
 written in a more wordy way like this:
 
-!> else {
-!>   var found = find(start + 5, "(" + history + " + 5)");
-!>   if (found == null)
-!>     found = find(start * 3, history + " * 3");
-!>   return found;
-!> }
+] else {
+]   var found = find(start + 5, "(" + history + " + 5)");
+]   if (found == null)
+]     found = find(start * 3, history + " * 3");
+]   return found;
+] }
 
 ---
 
@@ -3713,13 +3713,13 @@ directly.
 
 The cat-code in \\cdata contains a piece like this:
 
-!> var paragraphs = mailArchive[mail].split("\n");
-!> for (var i = 0; i < paragraphs.length; i++)
-!>   handleParagraph(paragraphs[i]);
+] var paragraphs = mailArchive[mail].split("\n");
+] for (var i = 0; i < paragraphs.length; i++)
+]   handleParagraph(paragraphs[i]);
 
 This can now be written as...
 
-!> forEach(mailArchive[mail].split("\n"), handleParagraph);
+] forEach(mailArchive[mail].split("\n"), handleParagraph);
 
 On the whole, using more abstract (or 'higher level') constructs
 results in more information and less noise: The code in |sum| reads
@@ -4309,13 +4309,13 @@ look at.
 If you'd write that out without mapping and reducing you'd get
 something like this:
 
-!> var nextAsterisk = text.indexOf("*");
-!> var nextBrace = text.indexOf("{");
-!> var end = text.length;
-!> if (nextAsterisk != -1)
-!>   end = nextAsterisk;
-!> if (nextBrace != -1 && nextBrace < end)
-!>   end = nextBrace;
+] var nextAsterisk = text.indexOf("*");
+] var nextBrace = text.indexOf("{");
+] var end = text.length;
+] if (nextAsterisk != -1)
+]   end = nextAsterisk;
+] if (nextBrace != -1 && nextBrace < end)
+]   end = nextBrace;
 
 Which is even more hideous. Most of the time, when a decision has to
 be made based on a series of things, even if there are only two of
