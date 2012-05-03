@@ -209,7 +209,6 @@ function initEnvironment(win, output, callback) {
 //- env.js
 
 var ie = document.selection && window.ActiveXObject && /MSIE \d+/.test(navigator.userAgent);
-var iphone = /AppleWebKit/.test(navigator.userAgent) && /iP[oa]d|iPhone/.test(navigator.userAgent);
 
 function makeFrame(place, init) {
   var frame = createDOM("IFRAME", {"style": "border-width: 0; display: none;"});
@@ -235,7 +234,6 @@ function checkAppVersion(minimum){
   return parts.length > 0 && Number(parts[0]) >= minimum;
 }
 var useJSEditor = true;
-if (iphone) useJSEditor = false;
 
 function Buffer(name, content, where){
   if (useJSEditor){
@@ -245,9 +243,7 @@ function Buffer(name, content, where){
       where.appendChild(node);
     }, {value: content,
         matchBrackets: true,
-        lineWrapping: true,
-        onFocus: function() { inputFocused = true; },
-        onBlur: function() { inputFocused = false; }
+        lineWrapping: true
        });
   }
   else {
@@ -977,7 +973,7 @@ var processPage = function(){
   }
 
   var fixedConsole = !ie;
-  var fakeFixed = iphone, inputFocused = false;
+  var fakeFixed = false;
   var open = true;
   var contentRatio = Number(getCookie("contentRatio", .75));
   var topBar = 13;
@@ -992,8 +988,7 @@ var processPage = function(){
 
   function alignConsole() {
     if (fakeFixed) {
-      if (!iphone || !inputFocused)
-        $("console").style.bottom = "-" + (iphone ? window.pageYOffset : document.body.scrollTop) + "px";
+      $("console").style.bottom = "-" + (iphone ? window.pageYOffset : document.body.scrollTop) + "px";
     }
     else {
       $("console").style.bottom = "0px";
@@ -1064,14 +1059,6 @@ var processPage = function(){
           alignConsole();
         }, 100);
       };
-      if (iphone) {
-        function trackFocus(node) {
-          node.onfocus = function(){inputFocused = true;};
-          node.onblur = function(){inputFocused = false;};
-        }
-        trackFocus($("repl").firstChild);
-        trackFocus($("editor").firstChild);
-      }
     }
   }
 
@@ -1171,19 +1158,19 @@ var processPage = function(){
   }
 
   setTimeout(function(){document.body.style.visibility = "";}, 0);
-  if (/Version\/2/.test(navigator.userAgent) && /Safari\//.test(navigator.userAgent)) {
+  if (/Safari\//.test(navigator.userAgent) && /Mobile\//.test(navigator.userAgent)) {
+      // Doesn't work on mobile safari
+  } else if (/Version\/2/.test(navigator.userAgent) && /Safari\//.test(navigator.userAgent)) {
     if (!getCookie("safariwarning", false)) {
       setCookie("safariwarning", "1");
       alert("Safari 2 unfortunately does not support the JavaScript used by this book. Extra functionality will be disabled. Upgrade to version 3 (still beta), or use Firefox to read the book with full functionality.");
     }
-  }
-  else if (window.opera && Number(window.opera.version()) < 9.52) {
+  } else if (window.opera && Number(window.opera.version()) < 9.52) {
     if (!getCookie("operawarning", false)) {
       setCookie("operawarning", "1");
       alert("Your version of Opera is not supported by this site. The 'active' components of this book will be disabled. Use version 9.52+, Firefox, or a recent Safari if you want full functionality.");
     }
-  }
-  else {
+  } else {
     hideSolutions();
     moveFootnotes();
     addCodeButtons();
