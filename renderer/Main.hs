@@ -2,7 +2,7 @@ module Main where
 
 import Data.Time.Clock
 import Data.Time.Calendar
-import System(getArgs)
+import System.Environment(getArgs)
 import Data.Char
 import Data.Maybe
 import Data.List hiding (stripPrefix)
