@@ -10,6 +10,8 @@ import Data.Ord
 import Control.Monad
 import Control.Monad.State
 import System.IO.UTF8
+import Data.Hashable
+import Numeric
 
 import Html
 import Highlight
@@ -414,8 +416,24 @@ renderBlock c cs (Exercise _ n eps sps) = block [anchor ("exercise" ++ (show n))
                                                  divClass "exercisenum" [Tx ("Ex. " ++ (show (num c)) ++ "." ++ (show n))],
                                                  divClass "exercise" (map (renderParagraph cs) eps),
                                                  divClass "solution" (map (renderParagraph cs) sps)]
-                                          
-renderParagraph cs (Paragraph fs) = tg "p" (renderFragments cs fs)
+
+hashFragment (Plain s) = hash s
+hashFragment (CodeFrag s) = hash s
+hashFragment (Emp s) = hash s
+hashFragment (Keyword s _ _ _) = hash s
+hashFragment (ExRef _ s ) = hash s
+hashFragment (ChapRef _ s) = hash s
+hashFragment (FootRef n) = n
+hashFragment Break = 100
+hashFragment (Exponent s) = hash s
+hashFragment (Link s s2) = hash s + hash s2
+
+hashFragments fs = hash (map hashFragment fs)
+
+paragraphMarker n = Tg "a" [("class", "paragraph"), ("href", "#" ++ name), ("name", name)] [Tx " ¶ "]
+    where name = "p" ++ Numeric.showHex (abs n) ""
+
+renderParagraph cs (Paragraph fs) = tg "p" (paragraphMarker (hashFragments fs) : renderFragments cs fs)
 renderParagraph cs (Quote fs) = tg "blockquote" (renderFragments cs fs)
 renderParagraph cs (Code codetype content) = Tg "pre" [("class", classFor codetype)] ((highlighterFor codetype) content)
     where classFor Invalid = "code invalid"

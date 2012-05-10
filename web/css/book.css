@@ -274,3 +274,15 @@ a.donate {
   font-size: 70%;
   font-weight: bold;
 }
+
+a.paragraph {
+  position: absolute;
+  color: gray;
+  display: none;
+  right: 0px;
+  padding: 0 1em;
+  margin-right: -1em;
+  text-decoration: none;
+}
+
+p:hover a.paragraph, a.paragraph:hover { display: block; }
