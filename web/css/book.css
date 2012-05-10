@@ -277,12 +277,13 @@ a.donate {
 
 a.paragraph {
   position: absolute;
-  color: gray;
-  display: none;
+  color: white;
+  color: transparent;
+  display: block;
   right: 0px;
   padding: 0 1em;
-  margin-right: -1em;
+  margin-right: -2em;
   text-decoration: none;
 }
 
-p:hover a.paragraph, a.paragraph:hover { display: block; }
+p:hover a.paragraph, a.paragraph:hover { color: #aaa; }
