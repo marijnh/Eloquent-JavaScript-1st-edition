@@ -760,7 +760,7 @@ bigger expressions.
 The word _|var|_ is used to create a new variable. After |var|, the
 name of the variable follows. Variable names can be almost every word,
 but they may not include spaces. Digits can be part of variable names,
-|catch22| is a valid name, but the name must not start with one. The
+|catch22| is a valid name, but the name must not start with a digit. The
 characters '|$|' and '|_|' can be used in names as if they were
 letters, so |$_$| is a correct variable name.
 
@@ -1176,7 +1176,7 @@ like this:
 > }
 
 But now the program has to determine whether |counter| is divisible by
-|4| two times. The same effect can be gotten by appending an |else|
+|4| two times. The same effect can be obtained by appending an |else|
 part after an |if| statement. The _|else|_ statement is executed only
 when the |if|'s condition is false.
 
