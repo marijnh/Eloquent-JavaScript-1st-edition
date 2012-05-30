@@ -10844,7 +10844,7 @@ us do so again:
 The wrapper tries to create the object in all three ways, using |try|
 and |catch| to detect which ones fail. If none of the ways work, which
 might be the case on older browsers or browsers with strict security
-settings, it raises and error.
+settings, it raises an error.
 
 Now why is this object called an *XML* HTTP request? This is a bit of
 a misleading name. _XML_ is a way to store textual data. It uses tags
