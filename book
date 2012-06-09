@@ -456,8 +456,8 @@ used to store the sign of the number. A bigger issue is that non-whole
 numbers must also be represented. To do this, 11 bits are used to
 store the position of the fractional dot within the number.
 
-That leaves 52 bits##. Any whole number less than 2^52, which is over
-10^15, will safely fit in a JavaScript number. In most cases, the
+That leaves 52 bits##. Any whole number less than 2^52 (which is more
+than 10^15) will safely fit in a JavaScript number. In most cases, the
 numbers we are using stay well below that, so we do not have to
 concern ourselves with bits at all. Which is good. I have nothing in
 particular against bits, but you *do* need a terrible lot of them to
