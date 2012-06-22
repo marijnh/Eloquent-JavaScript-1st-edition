@@ -827,8 +827,8 @@ Showing a dialog window is a side effect. A lot of functions are
 useful because of the side effects they produce. It is also possible
 for a function to produce a value, in which case it does not need to
 have a side effect to be useful. For example, there is a function
-_|Math.max|_, which takes two arguments and gives back the biggest of
-the two:
+_|Math.max|_, which takes any number of numeric arguments and gives
+back the greatest:
 
 > alert(Math.max(2, 4));
 
