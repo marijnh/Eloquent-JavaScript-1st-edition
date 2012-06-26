@@ -6857,7 +6857,7 @@ computer's resources:
 
 But who wants a terrarium with just one kind of bug, and a stupid bug
 at that? Not me. It would be nice if we could add different kinds of
-bugs. Fortunately, all we have to is to make the
+bugs. Fortunately, all we have to do is to make the
 |elementFromCharacter| function more general. Right now it contains
 three cases which are typed in directly, or 'hard-coded':
 
