@@ -860,7 +860,7 @@ var code = {
       "// infinite recursion\nfunction chicken() {\n  return egg();\n}\nfunction egg() {\n  return chicken();\n}\nprint(chicken() + \" came first.\");\n",
       "// functions as values\nvar a = null;\nprint((a || function(){return \"B\";})());\n",
       "// makeAdder\nfunction makeAdder(amount) {\n  return function(number) {\n    return number + amount;\n  };\n}\nvar addTwo = makeAdder(2);\nprint(addTwo(3));\n",
-      "// optional argument\nfunction power(number, exponent) {\n  var result = 1;\n  if (exponent === undefined)\n    exponent = 2;\n  for (var count = 0; count < exponent; count++)\n    result *= base;\n  return result;\n}\n",
+      "// optional argument\nfunction power(base, exponent) {\n  var result = 1;\n  if (exponent === undefined)\n    exponent = 2;\n  for (var count = 0; count < exponent; count++)\n    result *= base;\n  return result;\n}\n",
       "// zeroPad\nfunction zeroPad(number, width) {\n  var string = String(Math.round(number));\n  while (string.length < width)\n    string = \"0\" + string;\n  return string;\n}\n",
       "// recursive power\nfunction power(base, exponent) {\n  if (exponent == 0)\n    return 1;\n  else\n    return base * power(base, exponent - 1);\n}\n",
       "// recursive search\nfunction findSequence(goal) {\n  function find(start, history) {\n    if (start == goal)\n      return history;\n    else if (start > goal)\n      return null;\n    else\n      return find(start + 5, \"(\" + history + \" + 5)\") ||\n             find(start * 3, \"(\" + history + \" * 3)\");\n  }\n  return find(1, \"1\");\n}\n\nprint(findSequence(24));\n"],
