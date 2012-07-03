@@ -11,8 +11,6 @@ import Control.Monad
 import Control.Monad.State
 import System.IO.UTF8
 
-import Highlight
-
 main = do args <- getArgs
           renderFile (args !! 0)
 
