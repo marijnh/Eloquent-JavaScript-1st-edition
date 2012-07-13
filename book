@@ -2436,7 +2436,7 @@ is given is pasted between the values in the array.
 Coming back to those cats, we now know that an array would be a good
 way to store the archive of e-mails. On this page, the function
 |retrieveMails| can be used to (magically) get hold of this array.
-Going over them to process them one after another is no rocket science
+Going over them to process them one after another is not rocket science
 anymore either:
 
 > var mailArchive = retrieveMails();
