@@ -320,10 +320,10 @@ To allow you to try out programs, both the examples and the code you
 write yourself, this book makes use of something called a _console_.
 If you are using a modern graphical browser (Internet Explorer version
 6 or higher, Firefox 1.5 or higher, Opera 9 or higher, Safari 3 or
-higher), the pages in this book will show a blueish bar at the bottom
-of your screen. You can open the console by clicking on the little
-arrow on the far right of this bar. (Note that I am not talking about
-your browser's built-in console.)
+higher, Chrome), the pages in this book will show a blueish bar at the
+bottom of your screen. You can open the console by clicking on the
+little arrow on the far right of this bar. (Note that I am not talking
+about your browser's built-in console.)
 
 The console contains three important elements. There is the output
 window, which is used to show error messages and things that programs
