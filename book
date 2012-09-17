@@ -925,7 +925,7 @@ repeat some code.
 
 You may have seen _|while|_ in the introduction chapter. A statement
 starting with the word |while| creates a _loop_. A loop is a
-disturbance in the sequence of statements, it may cause the program to
+disturbance in the sequence of statements -- it may cause the program to
 repeat some statements multiple times. In this case, the word |while|
 is followed by an expression in parentheses (the parentheses are
 compulsory here), which is used to determine whether the loop will
@@ -4627,10 +4627,9 @@ anchor is specified with an |a| element, which is also used for links.
 In this case, it needs a |name| attribute, instead of an |href|.
 
 > function renderFootnote(footnote) {
->   var anchor = tag("a", [], {name: "footnote" + footnote.number});
 >   var number = "[" + footnote.number + "] ";
->   return tag("p", [tag("small", [anchor, number,
->                                  footnote.content])]);
+>   var anchor = tag("a", [number], {name: "footnote" + footnote.number});
+>   return tag("p", [tag("small", [anchor, footnote.content])]);
 > }
 
 Here, then, is the function which, when given a file in the correct
