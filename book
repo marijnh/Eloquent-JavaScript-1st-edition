@@ -10885,7 +10885,7 @@ containing all the headers. These can occasionally be useful to get
 some extra information about the document.
 
 > print(request.getAllResponseHeaders());
-> show(request.getResponseHeader("Date"));
+> show(request.getResponseHeader("Last-Modified"));
 
 If, for some reason, you want to add headers to the request that is
 sent to the server, you can do so with the _|setRequestHeader|_
