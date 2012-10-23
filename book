@@ -6561,9 +6561,9 @@ Now we can use the |each| method of the |Grid| object to build up a
 string. But to make the result readable, it would be nice to have a
 newline at the end of every row. The |x| coordinate of the positions
 on the grid can be used to determine when the end of a line is
-reached. Add a method |toString|, which takes no arguments and returns
-a string which, when given to |print|, shows a nice two-dimensional
-view of the terrarium.
+reached. Add a method |toString| to the |Terrarium| prototype, which
+takes no arguments and returns a string that, when given to |print|,
+shows a nice two-dimensional view of the terrarium.
 
 ///
 
