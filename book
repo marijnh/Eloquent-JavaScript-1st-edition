@@ -8630,7 +8630,7 @@ Although a URL is supposed to point at a file, it is possible for a
 web-server to do something more complicated than just looking up a
 file and sending it to the client. -- It can process this file in some
 way first, or maybe there is no file at all, but only a program that,
-given an URL, has some way of generating the relevant document for it.
+given a URL, has some way of generating the relevant document for it.
 
 Programs that transform or generate documents on a server are a
 popular way to make web-pages less static. When a file is just a file,
