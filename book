@@ -10569,7 +10569,7 @@ only grabs events aimed at its own window.
 
 ***
 
-When brought to the exit, the boulders vanish rather abrubtly. By
+When brought to the exit, the boulders vanish rather abruptly. By
 modifying the |Square.clearContent| method, try to show a 'falling'
 animation for boulders that are about to be removed. Make them grow
 smaller for a moment before, and then disappear. You can use
