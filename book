@@ -11281,7 +11281,7 @@ checking each element.
 The next solution would be, of course, to sort our array. JavaScript
 arrays have a wonderful _|sort|_ method, which can be used to do the
 heavy work. Unfortunately, re-sorting a whole array every time an
-element is removed is more work than searching for a minimum value in
+element is added is more work than searching for a minimum value in
 an unsorted array. Some tricks can be used, such as, instead of
 re-sorting the whole array, just making sure new values are inserted
 in the right place so that the array, which was sorted before, stays
