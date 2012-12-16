@@ -1375,12 +1375,12 @@ situations. If a variable is known to contain either a string or
 > if (maybeNull)
 >   print("maybeNull has a value");
 
-Except in the case where the mystery code gives |maybeNull| the value
-|""|. An empty string is false, so nothing is printed. Depending on
-what you are trying to do, this might be *wrong*. It is often a good
-idea to add an explicit |=== null| or |=== false| in cases like this
-to prevent subtle mistakes. The same occurs with number values that
-might be |0|.
+... except in the case where the mystery code gives |maybeNull| the
+value |""|. An empty string is false, so nothing is printed. Depending
+on what you are trying to do, this might be *wrong*. It is often a
+good idea to add an explicit |=== null| or |=== false| in cases like
+this to prevent subtle mistakes. The same occurs with number values
+that might be |0|.
 
 ---
 
