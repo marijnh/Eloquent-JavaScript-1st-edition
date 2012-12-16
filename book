@@ -5599,8 +5599,8 @@ and a diagonal part. If you have a path like this...
 
 [[diagonalpath.png]]
 
-... the path is |8| squares wide and |4| high, so you get |8 - 4 = 4|
-straight moves, and |4| diagonal ones.
+... the path is |6| squares wide and |3| high, so you get |6 - 3 = 3|
+straight moves, and |3| diagonal ones.
 
 If you wrote a function that just computes the straight 'Pythagorean'
 distance between the points, that would also work. What we need is an
