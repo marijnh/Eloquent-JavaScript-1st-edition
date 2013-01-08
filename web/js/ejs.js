@@ -37,7 +37,7 @@ function growElement(node) {
 
 function growEditor(node) {
   var cm = node.CodeMirror, parent = node.parentNode;
-  setElementDimensions(cm.getScrollerElement(), {w: parent.clientWidth, h: parent.clientHeight});
+  setElementDimensions(cm.getWrapperElement(), {w: parent.clientWidth, h: parent.clientHeight});
   cm.refresh();
 }
 
