@@ -6632,7 +6632,7 @@ It is possible to give the name of the method as a string. This way, the
 
 > function method(object, name) {
 >   return function() {
->     object[name].apply(object, arguments);
+>     return object[name].apply(object, arguments);
 >   };
 > }
 >
