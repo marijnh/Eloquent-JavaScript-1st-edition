@@ -386,14 +386,6 @@ that one will be run as well, so when you start in the middle of a
 chapter, hold shift the first time you run a piece of code, and
 everything should work as expected.
 
----
-
-Finally, the little face in the top-left corner of your screen can be
-used to send me, the author, a message. If you have a comment, or you
-find a passage ridiculously confusing, or you just spot a spelling
-error, tell me about it. Sending a message can be done without leaving
-the page, so it won't interrupt your reading.
-
 ==============================================================
 Basic JavaScript: values, variables, and control flow / basics
 ==============================================================
