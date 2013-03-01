@@ -67,6 +67,7 @@ BinaryHeap.prototype = {
       if (i == length - 1) break;
       // Otherwise, we replace the removed element with the popped
       // one, and allow it to float up or sink down as appropriate.
+      this.content[i] = end;
       this.bubbleUp(i);
       this.sinkDown(i);
       break;
