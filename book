@@ -7112,6 +7112,7 @@ inheritance, and the issues they have.
 Here is the new |processCreature| method. It is big.
 
 > LifeLikeTerrarium.prototype.processCreature = function(creature) {
+>   if (creature.object.energy <= 0) return;
 >   var surroundings = this.listSurroundings(creature.point);
 >   var action = creature.object.act(surroundings);
 >
@@ -7137,6 +7138,7 @@ Here is the new |processCreature| method. It is big.
 >     if (valueAtTarget && valueAtTarget.energy) {
 >       this.grid.setValueAt(target, undefined);
 >       creature.object.energy += valueAtTarget.energy;
+>       valueAtTarget.energy = 0;
 >     }
 >   }
 >   else if (action.type == "photosynthese") {
@@ -7162,13 +7164,14 @@ Here is the new |processCreature| method. It is big.
 >     this.grid.setValueAt(creature.point, undefined);
 > };
 
-The function still starts by asking the creature for an action. Then,
-if the action has a |direction| property, it immediately computes
-which point on the grid this direction points to and which value is
-currently sitting there. Three of the five supported actions need to
-know this, and the code would be even uglier if they all computed it
-separately. If there is no |direction| property, or an invalid one, it
-leaves the variables |target| and |valueAtTarget| undefined.
+The function still starts by asking the creature for an action,
+provided it isn't out of energy (dead). Then, if the action has a
+|direction| property, it immediately computes which point on the grid
+this direction points to and which value is currently sitting there.
+Three of the five supported actions need to know this, and the code
+would be even uglier if they all computed it separately. If there is
+no |direction| property, or an invalid one, it leaves the variables
+|target| and |valueAtTarget| undefined.
 
 After this, it goes over all the actions. Some actions require
 additional checking before they are executed, this is done with a
