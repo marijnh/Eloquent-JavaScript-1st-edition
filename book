@@ -1222,7 +1222,7 @@ it is "3" or "5", say "Almost!". In other cases, say something mean.
 When a loop does not always have to go all the way through to its end,
 the _|break|_ keyword can be useful. It immediately jumps out of the
 current loop, continuing after it. This program finds the first number
-that is greater than 20 and divisible by 7:
+that is greater than or equal to 20 and divisible by 7:
 
 > for (var current = 20; ; current++) {
 >   if (current % 7 == 0)
