@@ -1024,11 +1024,11 @@ the visual shape of a program corresponds to the shape of the blocks
 inside it. I like to use two spaces for every open block, but tastes
 differ.
 
-The field in the console where you can
-type programs will help you by automatically adding these spaces. This
-may seem annoying at first, but when you write a lot of code it
-becomes a huge time-saver. Pressing the tab key will re-indent the
-line your cursor is currently on.
+The field in the console where you can type programs will help you by
+automatically adding these spaces. This may seem annoying at first,
+but when you write a lot of code it becomes a huge time-saver.
+Pressing shift+tab will re-indent the line your cursor is currently
+on.
 
 In some cases, JavaScript allows you to omit the semicolon at the end
 of a statement. In other cases, it has to be there or strange things
